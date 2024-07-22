@@ -5,6 +5,7 @@ public class GumballMachine {
     private State soldState;
     private State state;
     private int count = 0;
+    private String flavor = null;
 
     public GumballMachine(int numberGumballs) {
         soldOutState = new SoldOutState(this);
@@ -31,6 +32,10 @@ public class GumballMachine {
     public void turnCrank() {
         state.turnCrank();
         state.dispense();
+    }
+
+    public void choose(String flavor) {
+        state.choose(flavor);
     }
 
     void setState(State state) {
@@ -66,5 +71,13 @@ public class GumballMachine {
         if (count != 0) {
             count = count - 1;
         }
+    }
+
+    public void setFlavor(String flavor) {
+        this.flavor = flavor;
+    }
+
+    public String getFlavor() {
+        return flavor;
     }
 }

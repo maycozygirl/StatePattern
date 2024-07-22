@@ -3,6 +3,5 @@ public interface State {
     void ejectQuarter();
     void turnCrank();
     void dispense();
+    void choose(String flavor); 
 }
-
-

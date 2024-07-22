@@ -15,15 +15,19 @@ public class HasQuarterState implements State {
     }
 
     public void turnCrank() {
-        System.out.println("You turned...");
-        if (Math.random() < 0.1 && gumballMachine.getCount() > 1) {
-            gumballMachine.setState(gumballMachine.getSoldState());
-        } else {
-            gumballMachine.setState(gumballMachine.getSoldOutState());
+        if (gumballMachine.getFlavor() == null) {
+            System.out.println("You have to choose a flavor first");
+            return;
         }
-    }    
+        System.out.println("You turned...");
+        gumballMachine.setState(gumballMachine.getSoldState());
+    }
 
     public void dispense() {
-        System.out.println("No gumball dispensed");
+    }
+
+    public void choose(String flavor) {
+        System.out.println("You have chosen the flavor " + flavor);
+        gumballMachine.setFlavor(flavor);
     }
 }

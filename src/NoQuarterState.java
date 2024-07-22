@@ -15,10 +15,14 @@ public class NoQuarterState implements State {
     }
 
     public void turnCrank() {
-        System.out.println("You turned, but there's no quarter");
+        System.out.println("You need to choose a flavor first");
     }
 
     public void dispense() {
         System.out.println("You need to pay first");
+    }
+
+    public void choose(String flavor) {
+        System.out.println("You can't choose a flavor without inserting a quarter");
     }
 }

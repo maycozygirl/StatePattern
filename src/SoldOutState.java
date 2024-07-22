@@ -20,4 +20,8 @@ public class SoldOutState implements State {
     public void dispense() {
         System.out.println("No gumball dispensed");
     }
+
+    public void choose(String flavor) {
+        System.out.println("You can't choose a flavor, the machine is sold out");
+    }
 }
