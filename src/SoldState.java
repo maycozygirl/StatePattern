@@ -17,11 +17,17 @@ public class SoldState implements State {
         System.out.println("Turning twice doesn't get you another gumball!");
     }
     public void dispense() {
-        gumballMachine.releaseBall();
+        if (Math.random() < 0.1 && gumballMachine.getCount() > 1) {
+            gumballMachine.releaseBall();
+            gumballMachine.releaseBall();
+        } else {
+            gumballMachine.releaseBall();
+        }
         if (gumballMachine.getCount() == 0) {
             gumballMachine.setState(gumballMachine.getSoldOutState());
         } else {
             gumballMachine.setState(gumballMachine.getNoQuarterState());
         }
     }
+    
 }
